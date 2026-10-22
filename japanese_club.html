@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <link href="css/iot-club.css" rel="stylesheet">
+
+
+  <!-- Bootstrap JS (with Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Meta & head links moved here for proper responsiveness -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Japanese Club - MKCE</title>
+  <link href="images/favicon.ico" rel="icon">
+
+  <!-- Existing project styles -->
+  <link href="css/bootstrap1.min.css" rel="stylesheet">
+  <link href="css/all.min.css" rel="stylesheet">
+  <link href="css/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/header2.css">
+  <link href="css/remixicon.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <!-- New: responsive overrides (non-invasive) -->
+  <link href="css/responsive.css" rel="stylesheet">
+
+  
+
+  <style>
+   
+  /* Reset text direction issues */
+  h5, p {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    white-space: normal !important;
+  }
+
+  /* Keep cards neat */
+  .card {
+    border-radius: 15px;
+    overflow: hidden;
+  }
+ 
+  .card img {
+    border: 4px solid #f1f1f1;
+  }
+
+    .jus {
+      text-align: justify;
+    }
+
+    @media (min-width: 768px) {
+      /* Only make explicitly fluid images expand */
+      .img-fluid {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    /* Remove broad overrides that conflict with Bootstrap grid */
+
+
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+
+    .imageban {
+      width: 100%;
+      height: 40vh;
+      background-position: center;
+      background-size: cover;
+      background-image: url("images/banner.png");
+    }
+
+    .bgli {
+
+      background: linear-gradient(red, #FF3366, green);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+
+    /* Style the PDF modal (avoid Bootstrap .modal class conflicts) */
+    .pdf-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    /* Style the PDF modal content */
+    .pdf-modal-content {
+      position: relative;
+      width: 80%;
+      height: auto;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+
+    }
+
+    /* Style the PDF modal close button */
+    .pdf-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .btn {
+      border-radius: 50px;
+      /* Adjust the radius to control the roundness */
+      background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%);
+      color: #fff;
+      /* Change to your desired text color */
+      padding: 10px 20px;
+      /* Adjust padding as needed */
+      font-size: 16px;
+      /* Change to your desired font size */
+      text-transform: uppercase;
+      /* Optional, to make the text uppercase */
+      position: relative;
+      /* Needed for reflection effect */
+    }
+
+    .btn:after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      /* Adjust the height of the reflection */
+      background: rgba(0, 0, 0, 0.2);
+      /* Reflection color */
+      border-radius: 50px;
+      /* Match the button's border-radius */
+    }
+
+    /* Additional styling for when the button is hovered over */
+    .btn:hover {
+      color: white !important;
+      background: linear-gradient(109.6deg, rgb(11, 132, 145) 11.2%, rgb(0, 0, 0) 91.1%);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    /* Specifically for event register buttons */
+    .card .btn-primary {
+      background: linear-gradient(to right, #0b4d4e, #093c79);
+      border: none;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: all 0.3s ease;
+    }
+
+    .card .btn-primary:hover {
+      background: linear-gradient(to right, #093c79, #0b4d4e);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(9, 60, 121, 0.4);
+    }
+
+    .card .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+      transition: left 0.7s ease;
+      z-index: -1;
+    }
+
+    .card .btn-primary:hover::before {
+      left: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="row k text-center p-3" style="background-color: #ffffff;">
+    <div class="col-12">
+      <img src="images/mkce-header_new.png" class="img-fluid" alt="MKCE Accreditations">
+    </div>
+  </div>
+
+
+  <!-- Head metadata and styles are now correctly placed in <head> for responsiveness -->
+  <style>
+    /* red alert style */
+    .custom-alert {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ff4d4d;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      z-index: 99999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+    }
+  </style>
+
+  <style>
+    /* Default styles for the div */
+    .k {
+      width: 100%;
+    }
+
+    .k2 {
+      width: 10%;
+    }
+
+    /* Styles for screens up to 767px width (mobile devices) */
+    @media screen and (max-width: 767px) {
+      .k {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .k2 {
+        display: none;
+      }
+    }
+
+    /*=============== GOOGLE FONTS ===============*/
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+    /*=============== VARIABLES CSS ===============*/
+    :root {
+      --header-height: 3.5rem;
+
+      /*========== Colors ==========*/
+      /*Color mode HSL(hue, saturation, lightness)*/
+      --black-color: hsl(220, 24%, 12%);
+      --black-color-light: hsl(220, 24%, 15%);
+      --black-color-lighten: hsl(220, 20%, 18%);
+      --white-color: #fff;
+      --body-color: hsl(220, 100%, 97%);
+
+      /*========== Font and typography ==========*/
+      /*.5rem = 8px | 1rem = 16px ...*/
+      --body-font: "Montserrat", sans-serif;
+      --normal-font-size: .938rem;
+
+      /*========== Font weight ==========*/
+      --font-regular: 400;
+      --font-semi-bold: 600;
+
+      /*========== z index ==========*/
+      --z-tooltip: 10;
+      --z-fixed: 100;
+    }
+
+    /*========== Responsive typography ==========*/
+    @media screen and (min-width: 1024px) {
+      :root {
+        --normal-font-size: 1rem;
+      }
+    }
+
+    /*=============== BASE ===============*/
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: var(--body-font);
+      font-size: var(--normal-font-size);
+      background-color: var(--body-color);
+    }
+
+    ul {
+      list-style: none;
+      /* Color highlighting when pressed on mobile devices */
+      /*-webkit-tap-highlight-color: transparent;*/
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /*=============== REUSABLE CSS CLASSES ===============*/
+    .container {
+      max-width: 1120px;
+      margin-inline: 1.5rem;
+    }
+
+    /*=============== HEADER ===============*/
+    .header {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: hsl(216.2, 74.6%, 13.9%);
+      box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
+      z-index: var(--z-fixed);
+    }
+
+
+    /*=============== Menu bar ===============*/
+
+
+
+    #container {
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    #container:after {
+      content: "";
+      display: block;
+      clear: both;
+      height: 0;
+    }
+
+    #menu {
+      position: relative;
+      float: left;
+      width: 100%;
+      padding: 0 20px;
+      border-radius: 3px;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.15);
+      background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+
+
+
+      z-index: 9997;
+    }
+
+    #menu,
+    #menu ul {
+      list-style: none;
+    }
+
+    #menu>li {
+      float: left;
+      position: relative;
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 1px 0 0 rgba(255, 255, 255, 0.25);
+      /* perspective: 1000px; */
+    }
+
+    #menu>li:first-child {
+      border-left: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: -1px 0 0 rgba(0, 0, 0, 0.1), 1px 0 0 rgba(255, 255, 255, 0.25);
+    }
+
+    #menu a,
+    #menu span {
+      display: block;
+      position: relative;
+      z-index: 9998;
+      padding: 13px 20px 13px 20px;
+      text-decoration: none;
+      color: white;
+      line-height: 1;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: -0.05em;
+      background: transparent;
+
+      transition: all 0.25s ease-in-out;
+    }
+
+    #menu>li:hover>a,
+    #menu>li:hover>span {
+      background: #333;
+      color: rgba(0, 223, 252, 1);
+      text-shadow: none;
+    }
+
+    #menu li ul {
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      width: 250px;
+      padding: 0;
+      opacity: 0;
+      visibility: hidden;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      background: transparent;
+      /* overflow: hidden; */
+      transform-origin: 50% 0%;
+      z-index: 10000;
+      animation: swingdown 1s ease;
+      animation-play-state: paused;
+    }
+
+    #menu li:hover ul {
+      padding: 15px 0;
+      background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+      opacity: 1;
+      visibility: visible;
+      box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5);
+      animation-play-state: running;
+    }
+
+    @keyframes swingdown {
+      0% {
+        opacity: 0.99999;
+        transform: rotateX(90deg);
+      }
+
+      30% {
+        transform: rotateX(-20deg) rotateY(5deg);
+        animation-timing-function: ease-in-out;
+      }
+
+      65% {
+        transform: rotateX(20deg) rotateY(-3deg);
+        animation-timing-function: ease-in-out;
+      }
+
+      100% {
+        transform: rotateX(0);
+        animation-timing-function: ease-in-out;
+      }
+    }
+
+    #menu li li a {
+      padding-left: 15px;
+      font-weight: 400;
+      color: #ddd;
+      text-shadow: none;
+      border-top: dotted 1px transparent;
+      border-bottom: dotted 1px transparent;
+      transition: all 0.15s linear;
+    }
+
+    #menu li li a:hover {
+      color: rgba(0, 223, 252, 1);
+      border-top: dotted 1px rgba(255, 255, 255, 0.15);
+      border-bottom: dotted 1px rgba(255, 255, 255, 0.15);
+      background: rgba(0, 223, 252, 0.02);
+    }
+
+    /* Add this to your existing CSS file or create a new one */
+    .mobile-menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media only screen and (max-width: 768px) {
+      #menu {
+        display: none;
+        padding: 20px;
+        /* Adjust spacing as needed */
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+        text-align: right;
+        padding: 15px;
+        background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+        color: #fff;
+      }
+
+      .toggle-group {
+        width: 100%;
+      }
+
+      .toggle-group>a {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+
+    /* Add this CSS for mobile responsiveness */
+    @media only screen and (max-width: 768px) {
+      body {
+        padding: 15px;
+        /* Adjust padding for smaller screens */
+      }
+
+      #container {
+        width: 100%;
+        /* Make the container full width */
+      }
+
+      #menu {
+        float: none;
+        width: 100%;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+      }
+
+      #menu>li {
+        float: none;
+        position: static;
+        border: none;
+        box-shadow: none;
+      }
+
+      #menu>li:first-child {
+        border: none;
+        box-shadow: none;
+      }
+
+      #menu a {
+        padding: 10px;
+        font-size: 14px;
+        /* Increase font size for better readability */
+      }
+
+      #menu>li:hover>a {
+        background: transparent;
+        color: rgba(0, 223, 252, 1);
+      }
+
+      #menu li ul {
+        position: static;
+        width: 100%;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        border-radius: 0;
+        box-shadow: none;
+        background: #333;
+        overflow: visible;
+        transform-origin: 50% 50%;
+      }
+
+      #menu li:hover ul {
+        padding: 10px 0;
+        background: #333;
+        box-shadow: none;
+        animation: none;
+      }
+
+      @keyframes swingdown {
+        /* Remove the animation for smaller screens */
+      }
+
+      #menu li li a {
+        padding-left: 15px;
+        font-weight: 400;
+        color: #ddd;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        transition: none;
+      }
+
+      #menu li li a:hover {
+        color: rgba(0, 223, 252, 1);
+        background: rgba(0, 223, 252, 0.02);
+      }
+    }
+
+    .wide-submenu {
+      width: 600px;
+      /* Adjust width as needed */
+    }
+
+    .bg-dark2 {
+      background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(11, 77, 78, 1) 53%, rgba(9, 60, 121, 1) 95%);
+    }
+
+    #payments-sub-menu {
+      display: none;
+    }
+
+    .payments-menu-group:hover #payments-sub-menu {
+      display: block;
+    }
+
+    .dropdown-toggle-no-caret::after {
+      display: none !important;
+    }
+
+    .dropdown-menu {
+      background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+      /* Set the background color for the submenu */
+    }
+
+    .dropdown-item {
+      color: #fff;
+      /* Set the text color for the submenu items */
+    }
+
+    .dropdown-item:hover {
+      color: rgba(0, 223, 252, 1);
+      background: rgba(0, 223, 252, 0.02);
+    }
+  </style>
+
+  <!--Title/Header starts -->
+
+  <div class="title-section wow fadeInUp">
+    <div class="container-fluid py-5">
+      <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+        <h5 class="fw-bold text-uppercase title-subtitle">M.Kumarasamy College of Engineering</h5>
+        <h1 class="mb-0 title-main"><center>Japanese Club</h1></center>
+
+
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .title-section {
+      background: linear-gradient(135deg, rgba(9, 30, 62, 1) 0%, rgba(11, 77, 78, 1) 50%, rgba(9, 60, 121, 1) 100%);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Prevent title from wrapping undesirably, but allow better fit on small screens */
+    .title-main {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      overflow: visible;
+    }
+
+    .title-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
+      animation: pulse 8s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: scale(1.2);
+        opacity: 0.2;
+      }
+
+      100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+    }
+
+    .title-subtitle {
+      color: #6fd6d6 !important;
+      letter-spacing: 3px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .title-main {
+      color: white;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 2;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+    }
+
+    .title-main i {
+      margin-right: 10px;
+      color: #6fd6d6;
+    }
+  </style>
+
+
+<div class="container-fluid">
+  <div class="row text-white py-2 px-3" style="background: linear-gradient(to right, #05022C,#0B4C51 ,#093C79);">
+    <div class="col-12">
+      <marquee style="color: rgb(255, 255, 255); font-weight: bold; font-size: 1.1rem; letter-spacing: 1px; width: 100%; display: block;">
+        Notification :- will be updated soon...
+      </marquee>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+  <!-- About Section Start -->
+
+  <div class="container-flex wow fadeInUp">
+    <div class="row justify-content-center">
+
+      <div class="pdf-modal" id="pdfModal">
+        <div class="pdf-modal-content">
+          <span class="pdf-modal-close" id="closeModal">×</span>
+          <iframe id="pdfIframe" src="" frameborder="0" width="100%" height="70vh"></iframe>
+        </div>
+      </div>
+
+      <!-- About Section with Image -->
+      <div class="container mb-4">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <h2 class="mb-4"><i class="bi bi-info-circle"></i> About Japanese Club</h2>
+            <p class="jus">Sustainable Engineering Club is a forward-thinking initiative dedicated to addressing the world's most pressing environmental challenges through innovative engineering solutions. Our club serves as a catalyst for eco-conscious innovation, bringing together students from diverse disciplines to develop sustainable technologies that can create a positive impact on our planet. We believe that the engineers of tomorrow must be equipped not only with technical expertise but also with a deep understanding of sustainable development principles.</p>
+            <p class="jus">Under the mentorship of <b>Dr. P.Balamurugan, ASP/Civil</b>, our club members get opportunities to
+              work on real-world problems, interact with industry professionals, and participate in national and
+              international competitions.</p>
+          </div>
+          <div class="col-lg-4">
+            <div class="rounded overflow-hidden">
+              <img src="images/logo_ici.png" class="img-fluid" alt="IoT Club">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vision & Mission Cards -->
+      <h2 class="text-center mb-5"><i class="bi bi-bullseye"></i> Vision & Mission</h2>
+      <div class="container mb-5">
+        <div class="row">
+          <div class="col-lg-6 mb-4">
+            <div class="card h-100 shadow vision-card">
+              <div class="card-icon-wrapper vision">
+                <div class="card-icon">
+                  <i class="bi bi-eye-fill"></i>
+                </div>
+              </div>
+              <div class="card-body text-center">
+                <h3 class="card-title">Vision</h3>
+                <div class="card-divider vision"></div>
+                <p class="card-text jus">To empower future engineers with the knowledge, skills, and passion to create sustainable solutions that address global challenges, promote eco-friendly innovations, and build a resilient and responsible society for generations to come.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="card h-100 shadow mission-card">
+              <div class="card-icon-wrapper mission">
+                <div class="card-icon">
+                  <i class="bi bi-eye-fill"></i>
+                </div>
+              </div>
+              <div class="card-body text-center">
+                <h3 class="card-title">Mission</h3>
+                <div class="card-divider mission"></div>
+                <p class="card-text jus">• To empower engineering students to develop and apply sustainable solutions through education, innovation, and collaboration.</p>  
+                <p class="card-text jus">• To cultivate responsible leaders who promote eco-friendly practices and contribute to building a resilient, sustainable future.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        .vision-card,
+        .mission-card {
+          border: none;
+          border-radius: 15px;
+          overflow: hidden;
+          transition: all 0.3s ease;
+          position: relative;
+          z-index: 1;
+        }
+
+        .vision-card {
+          background: linear-gradient(135deg, rgba(255, 255, 255, 1) 70%, rgba(100, 149, 237, 0.2) 100%);
+        }
+
+        .mission-card {
+          background: linear-gradient(135deg, rgba(255, 255, 255, 1) 70%, rgba(72, 209, 204, 0.2) 100%);
+        }
+
+        .vision-card:hover,
+        .mission-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .card-icon-wrapper {
+          text-align: center;
+          padding-top: 30px;
+        }
+
+        .card-icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          font-size: 2.5rem;
+          margin-bottom: 10px;
+          background: white;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-icon-wrapper.vision .card-icon {
+          color: #6495ED;
+          border: 2px solid rgba(100, 149, 237, 0.3);
+        }
+
+        .card-icon-wrapper.mission .card-icon {
+          color: #48D1CC;
+          border: 2px solid rgba(72, 209, 204, 0.3);
+        }
+
+        .card-title {
+          margin-top: 10px;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+
+        .card-divider {
+          height: 3px;
+          width: 50px;
+          margin: 15px auto;
+          border-radius: 5px;
+        }
+
+        .card-divider.vision {
+          background: linear-gradient(90deg, #6495ED, #4169E1);
+        }
+
+        .card-divider.mission {
+          background: linear-gradient(90deg, #48D1CC, #20B2AA);
+        }
+
+        .card-text {
+          padding: 0 10px;
+        }
+      </style>
+
+<!-- Faculty Incharge Section -->
+<h2 class="text-center mb-5"><i class="bi bi-people"></i> Faculty Coordinator</h2>
+<div class="container mb-5 contact-social">
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-8 col-10 mb-4">
+      <div class="card faculty-card text-center h-100 shadow" aria-label="Faculty Coordinator">
+        <div class="card-body">
+          <img src="images/faculty_sustain.png" alt="Dr. P.Balamurugan" class="faculty-avatar rounded-circle mx-auto d-block" loading="lazy">
+          <h5 class="card-title mt-3">Dr. P.Balamurugan</h5>
+          <p class="card-text text-muted">ASP/CIVIL</p>
+        </div>
+      </div>
+    </div>
+<style>
+  /* Tweak only the faculty card visuals for consistency */
+  .faculty-card .faculty-avatar {
+    width: clamp(110px, 30vw, 150px);
+    height: clamp(110px, 30vw, 150px);
+    object-fit: cover;
+    border: 4px solid #f1f1f1;
+  }
+  /* Improve look on laptops/desktops */
+  @media (min-width: 992px) {
+    .faculty-card .faculty-avatar {
+      width: clamp(160px, 12vw, 200px);
+      height: clamp(160px, 12vw, 200px);
+    }
+    .faculty-card .card-body { padding: 2rem; }
+  }
+  .faculty-card .card-title { font-weight: 600; }
+  .faculty-card .card-body { padding: 1.5rem; }
+  .faculty-card { border-radius: 15px; overflow: hidden; }
+  .faculty-card:hover { transform: translateY(-4px); transition: transform .2s ease; }
+</style>
+
+
+<!-- Board Bearers Section -->
+<h2 class="text-center mb-5"><i class="bi bi-people"></i> Office Bearers</h2>
+<div class="container mb-5">
+  <div class="row justify-content-center">
+    <!-- Section 1: President & Vice President -->
+    <div class="col-lg-4 col-md-6 mb-4">
+      <h4 class="text-center mb-0"><i class="bi bi-people"></i> People who bridge the ideas and execution</h4><br><br>
+      <div class="board-bearer-card card text-center shadow mb-3">
+        <div class="card-body p-3">
+          <img src="images/PRESIDENT_sustan.jpg" alt="S.J Jeevanantham" class="rounded-circle mx-auto d-block mb-2">
+          <h5 class="card-title mb-1">S.J Jeevanantham</h5>
+          <p class="card-text text-muted mb-0">President</p>
+        </div>
+      </div>
+      <div class="board-bearer-card card text-center shadow mb-3">
+        <div class="card-body p-3">
+          <img src="images/VISE PRESIDENT_sustain.jpg" alt="E. Ruthuvarshan" class="rounded-circle mx-auto d-block mb-2">
+          <h5 class="card-title mb-1">E. Ruthuvarshan  </h5>
+          <p class="card-text text-muted mb-0">Vice President</p>
+        </div>
+      </div>
+    </div>
+    <!-- Section 2: Secretary & Treasurer -->
+    <div class="col-lg-4 col-md-6 mb-4">
+      <h4 class="text-center mb-4"><i class="bi bi-people"></i> Lead, Serve, Inspire</h4><br><br>
+      <div class="board-bearer-card card text-center shadow mb-3">
+        <div class="card-body p-3">
+          <img src="images/SECRETARY_sustain.jpg" alt="Jai Narendiran" class="rounded-circle mx-auto d-block mb-2">
+          <h5 class="card-title mb-1">Jai Narendiran</h5>
+          <p class="card-text text-muted mb-0">Secretary</p>
+        </div>
+      </div>
+      <div class="board-bearer-card card text-center shadow">
+        <div class="card-body p-3">
+          <img src="images/TREASURE_sustain.jpg" alt="S.Harish Pranav" class="rounded-circle mx-auto d-block mb-2">
+          <h5 class="card-title mb-1">S.Harish Pranav</h5>
+          <p class="card-text text-muted mb-0">Treasurer</p>
+        </div>
+      </div>
+    </div>
+    <!-- Section 3: Event Coordinators -->
+    <div class="col-lg-4 col-md-6 mb-4">
+      <h4 class="text-center mb-4"><i class="bi bi-people"></i> Connect, Build, Transform</h4><br><br>
+      <div class="board-bearer-card card text-center shadow mb-3">
+        <div class="card-body p-3">
+          <img src="images/EVENT COORD 1_sustain.jpg" alt="M. Nagaraj" class="rounded-circle mx-auto d-block mb-2">
+          <h5 class="card-title mb-1">M. Nagaraj</h5>
+          <p class="card-text text-muted mb-0">Event Coordinator 1</p>
+        </div>
+      </div>
+      <div class="board-bearer-card card text-center shadow">
+        <div class="card-body p-3">
+          <img src="images/EVENT CORD 2_sustain.jpg" alt="A.Heman" class="rounded-circle mx-auto d-block mb-2">
+          <h5 class="card-title mb-1">A.Heman</h5>
+          <p class="card-text text-muted mb-0">Event Coordinator 2</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <!-- Event Planner -->
+  <h2 class="text-center mb-5"><i class="bi bi-calendar-event"></i> Event Planner</h2>
+  <div class="container mb-5 event-planner">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="card shadow">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead class="table-primary">
+                      <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Event</th>
+                        <th scope="col">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>25 Oct 2025</td>
+                        <td>Workshop + Idea Presentation</td>
+                       <td> It is an amazing event where students can learn and gain knowledge.</td>
+                      </tr>
+                    </tbody>
+                    <tbody>
+                      <tr>
+                        <td>08 Nov 2025</td>
+                        <td>Concrete Mix Design Using Pyhton</td>
+                       <td> It is an exciting event where students showcase their creativity by building innovative mobile apps.
+It encourages teamwork, coding skills, and real-world problem-solving through technology.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+   
+      <!-- Event Gallery Section -->
+      <h2 class="text-center mb-5"><i class="bi bi-images"></i> Event Gallery</h2>
+      <div class="container mb-5">
+        <div class="row gallery-container">
+          <div class="col-lg-4 col-md-6 mb-4 gallery-item">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img src="images/1.jpg" alt="Event 1" class="img-fluid">
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4 gallery-item">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img src="images/2.jpg" alt="Event 2" class="img-fluid">
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4 gallery-item">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img src="images/3.jpg" alt="Event 3" class="img-fluid">
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4 gallery-item">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img src="images/4.jpg" alt="Event 4" class="img-fluid">
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4 gallery-item">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img src="images/5.jpg" alt="Event 5" class="img-fluid">
+               
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <style>
+        /* Gallery Styles */
+        .gallery-container {
+          margin-top: 20px;
+        }
+
+        .gallery-card {
+          border-radius: 15px;
+          overflow: hidden;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+          transition: all 0.3s ease;
+        }
+
+        .gallery-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-image {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .gallery-image img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+
+        .gallery-card:hover .gallery-image img {
+          transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.6);
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .gallery-card:hover .gallery-overlay {
+          opacity: 1;
+        }
+
+        .gallery-info {
+          text-align: center;
+          padding: 0 20px;
+        }
+
+        .gallery-info h5 {
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-bottom: 5px;
+          color:#fff;
+        }
+
+        .gallery-info p {
+          font-size: 0.9rem;
+          margin-bottom: 15px;
+          opacity: 0.8;
+        }
+
+        .gallery-icon {
+          display: inline-block;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.2);
+          border: 1px solid rgba(255, 255, 255, 0.4);
+          font-size: 1.2rem;
+        }
+      </style>
+
+      <!-- Event Winners Section -->
+      <h2 class="text-center mb-5"><i class="bi bi-trophy"></i> Event Winners</h2>
+      <div class="container mb-5">
+        <div class="row justify-content-center">
+          <!-- Gold Winner -->
+          <div class="col-lg-4 col-md-6 mb-5">
+            <div class="winner-card gold">
+              <div class="winner-medal">
+                <i class="bi bi-trophy-fill"></i>
+              </div>
+              <div class="winner-badge">
+                <span>1st Place</span>
+              </div>
+              <div class="winner-img">
+                <img src="images/1st.jpg" alt="Winner 1" class="img-fluid">
+              </div>
+              <div class="winner-info">
+                <h4>Entrepix</h4>
+                <p class="team">Mangal Muthuu R M, Arunika K S, Malavika, Loshiya</p>
+               
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- Silver Winner -->
+          <div class="col-lg-4 col-md-6 mb-5">
+            <div class="winner-card silver">
+              <div class="winner-medal">
+                <i class="bi bi-award-fill"></i>
+              </div>
+              <div class="winner-badge">
+                <span>2nd Place</span>
+              </div>
+              <div class="winner-img">
+                <img src="images/2nd.jpg" alt="Winner 2" class="img-fluid">
+              </div>
+              <div class="winner-info">
+                <h4>Entrepix</h4>
+                <p class="team">Sachin Deepak S, Rohith P, Sabarinath S, Sabarish K</p>
+               
+              </div>
+            </div>
+          </div>
+
+          <!-- Silver Winner -->
+          <div class="col-lg-4 col-md-6 mb-5">
+            <div class="winner-card silver">
+              <div class="winner-medal">
+                <i class="bi bi-award-fill"></i>
+              </div>
+              <div class="winner-badge">
+                <span>2nd Place</span>
+              </div>
+              <div class="winner-img">
+                <img src="images/2nd.jpg" alt="Winner 2" class="img-fluid">
+              </div>
+              <div class="winner-info">
+                <h4>Entrepix</h4>
+                <p class="team">Jothikumaran R, Kannan V, Jagadeesh K, Ajeem M</p>
+               
+              </div>
+            </div>
+          </div>
+          <!-- Bronze Winner -->
+          <div class="col-lg-4 col-md-6 mb-5">
+            <div class="winner-card bronze">
+              <div class="winner-medal">
+                <i class="bi bi-award"></i>
+              </div>
+              <div class="winner-badge">
+                <span>3rd Place</span>
+              </div>
+              <div class="winner-img">
+                <img src="images/3rd.jpg" alt="Winner 3" class="img-fluid">
+              </div>
+              <div class="winner-info">
+                <h4>Entrepix</h4>
+                <p class="team">Saravanan Rajamurugan, Sowndhaar V R, Vibul S
+                  </p>
+               
+                
+              </div>
+            </div>
+          </div>
+                    <!-- Bronze Winner -->
+                    <div class="col-lg-4 col-md-6 mb-5">
+                      <div class="winner-card bronze">
+                        <div class="winner-medal">
+                          <i class="bi bi-award"></i>
+                        </div>
+                        <div class="winner-badge">
+                          <span>3rd Place</span>
+                        </div>
+                        <div class="winner-img">
+                          <img src="images/3rd.jpg" alt="Winner 3" class="img-fluid">
+                        </div>
+                        <div class="winner-info">
+                          <h4>Entrepix</h4>
+                          <p class="team">Madhushri S, Agalyaa T, Divya Sri S</p>
+                         
+                          
+                        </div>
+                      </div>
+                    </div>
+        </div>
+      </div>
+<!-- IoT Blog & News Section -->
+
+
+<script>
+  async function loadIoTNews() {
+    const rssUrl = "https://news.google.com/rss/search?q=Internet+of+Things&hl=en-IN&gl=IN&ceid=IN:en";
+    try {
+      let response = await fetch("https://api.rss2json.com/v1/api.json?rss_url=" + rssUrl);
+      let data = await response.json();
+      let container = document.getElementById("news-container");
+
+      // Remove the "Loading..." placeholder only
+      container.querySelectorAll("p").forEach(el => el.remove());
+
+      // Append dynamic news items
+      data.items.slice(0, 5).forEach(item => {
+        const newsItem = document.createElement("div");
+        newsItem.className = "news-item";
+        newsItem.innerHTML = `
+          <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+          <p>${item.pubDate.split(" ")[0]} — ${item.description.substring(0,100)}...</p>
+        `;
+        container.appendChild(newsItem);
+      });
+    } catch (error) {
+      document.getElementById("news-container").innerHTML += "<p> </p>";
+    }
+  }
+  loadIoTNews();
+</script>
+<!-- Contact Section -->
+
+
+
+<style>
+  .news-section {
+    padding: 50px 20px;
+    background: #f5f8fa;
+  }
+  .news-section .section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+  }
+  .news-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .news-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 4px solid #0077ff;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+  .news-item img.news-img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  .news-item h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+  }
+  .news-item a {
+    text-decoration: none;
+    color: #0077ff;
+  }
+  .news-item a:hover {
+    text-decoration: underline;
+  }
+  .news-item p {
+    font-size: 14px;
+    color: #555;
+  }
+</style>
+
+      <style>
+        /* Event Winners Styles */
+        .winner-card {
+          position: relative;
+          border-radius: 15px;
+          overflow: hidden;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+          transition: all 0.3s ease;
+          background: white;
+          padding-bottom: 20px;
+        }
+
+        .winner-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .winner-medal {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          z-index: 2;
+        }
+
+        .gold .winner-medal {
+          background: linear-gradient(135deg, #FFD700, #FFA500);
+          color: #7D4614;
+          box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .silver .winner-medal {
+          background: linear-gradient(135deg, #E0E0E0, #C0C0C0);
+          color: #505050;
+          box-shadow: 0 5px 15px rgba(192, 192, 192, 0.4);
+        }
+
+        .bronze .winner-medal {
+          background: linear-gradient(135deg, #CD7F32, #A05A2C);
+          color: #543E28;
+          box-shadow: 0 5px 15px rgba(205, 127, 50, 0.4);
+        }
+
+        .winner-badge {
+          position: absolute;
+          top: 20px;
+          left: 0;
+          background-color: #091E3E;
+          color: white;
+          padding: 8px 20px;
+          font-weight: bold;
+          border-top-right-radius: 20px;
+          border-bottom-right-radius: 20px;
+          box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+          z-index: 2;
+        }
+
+        .gold .winner-badge {
+  background: linear-gradient(90deg, rgba(255, 140, 0, 0.8), rgba(255, 215, 0, 0.8));
+}
+
+        
+
+       .silver .winner-badge {
+  background: linear-gradient(90deg, rgba(155, 143, 143, 0.8), rgba(224, 224, 224, 0.8));
+}
+
+.bronze .winner-badge {
+  background: linear-gradient(90deg, rgba(139, 69, 19, 0.8), rgba(205, 127, 50, 0.8));
+}
+
+
+        .winner-img {
+          height: 200px;
+          overflow: hidden;
+          border-bottom: 3px solid #f0f0f0;
+        }
+
+        .gold .winner-img {
+          border-bottom-color: #FFD700;
+        }
+
+        .silver .winner-img {
+          border-bottom-color: #C0C0C0;
+        }
+
+        .bronze .winner-img {
+          border-bottom-color: #CD7F32;
+        }
+
+        .winner-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+
+        .winner-card:hover .winner-img img {
+          transform: scale(1.1);
+        }
+
+        .winner-info {
+          padding: 20px;
+          text-align: center;
+        }
+
+        .winner-info h4 {
+          color: #091E3E;
+          font-weight: 600;
+          margin-bottom: 5px;
+          font-size: 1.4rem;
+        }
+
+        .winner-info .team {
+          color: #666;
+          font-weight: 500;
+          margin-bottom: 15px;
+          font-size: 1.1rem;
+        }
+
+        .winner-details {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 15px;
+          font-size: 0.9rem;
+          color: #666;
+        }
+
+        .winner-details span {
+          margin: 0 10px;
+          display: flex;
+          align-items: center;
+        }
+
+        .winner-details i {
+          margin-right: 5px;
+          color: #091E3E;
+        }
+
+        .winner-tech {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+        }
+
+        .winner-tech span {
+          background-color: #f0f0f0;
+          padding: 5px 15px;
+          border-radius: 20px;
+          font-size: 0.85rem;
+          color: #091E3E;
+        }
+
+        .gold .winner-tech span {
+          background: rgba(255, 215, 0, 0.15);
+        }
+
+        .silver .winner-tech span {
+          background: rgba(192, 192, 192, 0.15);
+        }
+
+        .bronze .winner-tech span {
+          background: rgba(205, 127, 50, 0.15);
+        }
+      </style>
+    </div>
+  </div>
+
+  <style>
+    .im {
+      background-image: url("images/b3.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .bg-dark {
+      background-color: #091E3E !important
+    }
+  </style>
+
+<!-- Footer -->
+<div class="container-fluid text-white"
+  style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(11,77,78,1) 53%, rgba(9,60,121,1) 95%);">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <div class="py-4">
+          <p class="mb-0">
+            2025 © M.Kumarasamy College of Engineering All Rights Reserved | Designed by
+            <span data-bs-toggle="modal" data-bs-target="#devTeamModal"
+              style="color: yellow; cursor: pointer; font-weight: bold;">
+              Clubs Web Dev Team - MKCE
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="devTeamModal" tabindex="-1" aria-labelledby="devTeamModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h5 class="modal-title" id="devTeamModalLabel">Clubs Web Dev Team - MKCE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row text-center">
+          <div class="col-md-3 col-6 mb-4">
+            <img src="./images/Photograph.jpg" alt="Member 4" class="rounded-circle img-fluid mb-2"
+              style="width:120px; height:160px; object-fit:cover;">
+            <h6 class="mb-0">Arun Sanjeev</h6>
+            <small>Lead</small>
+            <div class="mt-1">
+              
+              <a href="https://github.com/arunsanjeevms" target="_blank" rel="noopener" aria-label="Arun Sanjeev on GitHub" class="text-dark me-2"><i class="bi bi-github"></i></a>
+              <a href="https://www.linkedin.com/in/arunsanjeev/" target="_blank" rel="noopener" aria-label="Arun Sanjeev on LinkedIn" class="text-primary"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+           <div class="col-md-3 col-6 mb-4">
+            <img src="./images/sahil.png" alt="Member 4" class="rounded-circle img-fluid mb-2"
+              style="width:120px; height:160px; object-fit:cover;">
+            <h6 class="mb-0">Sahil</h6>
+            <small>UI/UX</small>
+            <div class="mt-1">
+              
+              <a href="https://github.com/sahildandia" target="_blank" rel="noopener" aria-label="Sahil on GitHub" class="text-dark me-2"><i class="bi bi-github"></i></a>
+              <a href="https://www.linkedin.com/in/sahildandia" target="_blank" rel="noopener" aria-label="Sahil on LinkedIn" class="text-primary"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <!-- Member 1 -->
+          <div class="col-md-3 col-6 mb-4">
+            <img src="images/harish.png" alt="Member 3" class="rounded-circle img-fluid mb-2" style="width:120px; height:160px; object-fit:cover;">
+            <h6 class="mb-0">Harish</h6>
+            <small>Team Member 1</small>
+          </div>
+
+          <!-- Member 2 -->
+          <div class="col-md-3 col-6 mb-4">
+            <img src="images/jeeva.png" alt="Member 3" class="rounded-circle img-fluid mb-2" style="width:120px; height:160px; object-fit:cover;">
+            <h6 class="mb-0">Jeeva</h6>
+            <small>Team Member 2</small>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>  
+
+
+
+
+
+
+
+
+  <script src="js/jquery-3.4.1.min.js" type="8a40b50d4e4710a0ee04b30c-text/javascript"></script>
+  <script src="js/bootstrap.bundle.min.js" type="8a40b50d4e4710a0ee04b30c-text/javascript"></script>
+
+  <script src="js/bootstrap.min.js" type="8a40b50d4e4710a0ee04b30c-text/javascript"></script>
+  <!-- Bootstrap framework -->
+  <script src="js/script.js" type="8a40b50d4e4710a0ee04b30c-text/javascript"></script>
+  <script src="js/custom.js" type="8a40b50d4e4710a0ee04b30c-text/javascript"></script>
+
+  <!-- Template Javascript -->
+  <script src="js/main.js" type="8a40b50d4e4710a0ee04b30c-text/javascript"></script>
+  <script type="8a40b50d4e4710a0ee04b30c-text/javascript">
+<!-- IoT Blog & News Section -->
+
+
+<script>
+  async function loadIoTNews() {
+    const rssUrl = "https://news.google.com/rss/search?q=Internet+of+Things&hl=en-IN&gl=IN&ceid=IN:en";
+    try {
+      let response = await fetch("https://api.rss2json.com/v1/api.json?rss_url=" + rssUrl);
+      let data = await response.json();
+      let container = document.getElementById("news-container");
+      container.innerHTML = "";
+
+      data.items.slice(0, 5).forEach(item => {
+        let newsItem = document.createElement("div");
+        newsItem.className = "news-item";
+        newsItem.innerHTML = `
+          <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+          <p>${item.pubDate.split(" ")[0]} — ${item.description.substring(0,100)}...</p>
+        `;
+        container.appendChild(newsItem);
+      });
+    } catch (error) {
+      document.getElementById("news-container").innerHTML = "<p>Unable to load news at this time.</p>";
+    }
+  }
+  loadIoTNews();
+</script>
+
+<style>
+  .news-section {
+    padding: 50px 20px;
+    background: #f5f8fa;
+  }
+  .news-section .section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+  }
+  .news-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .news-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 4px solid #0077ff;
+    background: #fff;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+  .news-item h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+  }
+  .news-item a {
+    text-decoration: none;
+    color: #0077ff;
+  }
+  .news-item a:hover {
+    text-decoration: underline;
+  }
+  .news-item p {
+    font-size: 14px;
+    color: #555;
+  }
+</style>
+
+	</script>
+</body>
+</html>
