@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Japanese Club</title>
+  <desc id="desc">A Japanese inspired club emblem with a rising sun and torii gate.</desc>
+  <rect width="800" height="500" fill="#fbf7f0"/>
+  <path d="M0 0h800v18H0z" fill="#b92e3e"/>
+  <circle cx="400" cy="188" r="116" fill="#c93c4b"/>
+  <path d="M220 326c44-32 103-49 180-49s136 17 180 49" fill="none" stroke="#d7c8b3" stroke-width="3"/>
+  <path d="M274 204h252M300 174h200M320 174v112M480 174v112M305 218h190" fill="none" stroke="#282b35" stroke-width="15" stroke-linecap="square"/>
+  <path d="M335 285h130" stroke="#282b35" stroke-width="13"/>
+  <text x="400" y="367" text-anchor="middle" fill="#242631" font-family="Arial, 'Noto Sans', sans-serif" font-size="50" font-weight="700" letter-spacing="3">JAPANESE CLUB</text>
+  <text x="400" y="412" text-anchor="middle" fill="#9d3440" font-family="Arial, 'Noto Sans', sans-serif" font-size="22" letter-spacing="6">LANGUAGE · CULTURE · COMMUNITY</text>
+</svg>
