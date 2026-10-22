@@ -1,0 +1,164 @@
+/* Non-invasive responsive enhancements. Do not alter base look; only adapt layout for smaller screens. */
+
+/* Global container padding adjustments */
+@media (max-width: 576px) {
+  .container,
+  .container-fluid,
+  .container-flex {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  html, body { max-width: 100%; overflow-x: hidden; }
+  marquee { max-width: 100%; }
+}
+
+/* Header image scales nicely */
+.row.k img.img-fluid {
+  height: auto;
+  max-width: 100%;
+}
+
+/* Center and size the header banner nicely */
+.header-banner {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 992px) {
+  .header-banner {
+    max-width: 900px; /* cap width on large screens for balanced look */
+  }
+}
+
+/* General image safety */
+img { max-width: 100%; height: auto; }
+
+/* Title area: allow wrapping on very small screens to avoid overflow */
+@media (max-width: 480px) {
+  .title-section .title-main {
+    white-space: normal;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+  }
+  .title-section .title-subtitle {
+    font-size: .9rem;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .title-section .title-main { font-size: 2.1rem; }
+}
+
+/* About section image */
+@media (max-width: 991.98px) {
+  .about .col-lg-4,
+  .about .col-lg-8 {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Cards */
+.card {
+  border-radius: 12px;
+}
+
+/* Remove rounded corners in specified sections only */
+.event-planner .card,
+.upcoming-events .card,
+.event-planner .table,
+.upcoming-events .table {
+  border-radius: 0;
+}
+
+/* Contact & Social Media: remove rounded corners */
+.contact-social .card,
+.contact-social .btn {
+  border-radius: 0;
+}
+
+/* Office bearers avatars harmonize */
+.board-bearer-card img.rounded-circle {
+  /* make avatars perfectly circular, centered and responsive */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: clamp(px, 18vw, 110px);
+  height: clamp(80px, 18vw, 110px);
+  object-fit: cover; /* preserve aspect, crop to fill the circle */
+  border-radius: 50% !important; /* ensure circular even if bootstrap class differs */
+}
+
+/* Center the upcoming events card(s) within their row */
+.upcoming-events .row {
+  justify-content: center; /* works with Bootstrap .row (flex) */
+}
+
+/* Event planner table responsiveness */
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* Gallery images keep aspect ratio and full width */
+.gallery-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* On larger screens, keep gallery tile height consistent */
+@media (min-width: 768px) {
+  .gallery-image img { height: 250px; object-fit: cover; }
+}
+
+/* Winner cards spacing on small screens */
+@media (max-width: 576px) {
+  .winner-card .winner-details {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+/* Winner image heights across breakpoints */
+.winner-img { height: auto; }
+@media (min-width: 576px) { .winner-img { height: 220px; } }
+@media (min-width: 992px) { .winner-img { height: 260px; } }
+
+/* Footer text center and padding for small devices */
+@media (max-width: 576px) {
+  footer, .footer, .container-fluid.text-white > .container {
+    text-align: center;
+  }
+}
+
+/* Navigation menu: ensure toggle shown and menu items full width on small */
+@media (max-width: 768px) {
+  .mobile-menu-toggle { display: block; }
+  #menu { width: 100%; }
+  #menu > li { width: 100%; }
+}
+
+/* Ensure images inside .rounded containers scale */
+.rounded img, .card img.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Modal iframe max height on small screens */
+@media (max-width: 576px) {
+  #pdfIframe {
+    height: 70vh !important;
+  }
+}
+
+/* Faculty card sizing polish */
+@media (min-width: 992px) {
+  .faculty-card .faculty-avatar { width: clamp(160px, 12vw, 200px); height: clamp(160px, 12vw, 200px); }
+}
+
+/* Event planner table typography tune */
+@media (max-width: 576px) {
+  table.table td, table.table th { font-size: 0.9rem; }
+}

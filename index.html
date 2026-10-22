@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <link href="css/iot-club.css" rel="stylesheet">
+
+
+  <!-- Bootstrap JS (with Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Meta & head links moved here for proper responsiveness -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>M.Kumarasamy College of Engineering, Karur - MKCE</title>
+  <link href="images/favicon.ico" rel="icon">
+
+  <!-- Existing project styles -->
+  <link href="css/bootstrap1.min.css" rel="stylesheet">
+  <link href="css/all.min.css" rel="stylesheet">
+  <link href="css/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/header2.css">
+  <link href="css/remixicon.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <!-- New: responsive overrides (non-invasive) -->
+  <link href="css/responsive.css" rel="stylesheet">
+
+  
+
+  <style>
+   
+  /* Reset text direction issues */
+  h5, p {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    white-space: normal !important;
+  }
+
+  /* Keep cards neat */
+  .card {
+    border-radius: 15px;
+    overflow: hidden;
+  }
+ 
+  .card img {
+    border: 4px solid #f1f1f1;
+  }
+
+    .jus {
+      text-align: justify;
+    }
+
+    @media (min-width: 768px) {
+      /* Only make explicitly fluid images expand */
+      .img-fluid {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    /* Remove broad overrides that conflict with Bootstrap grid */
+
+
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+
+    .imageban {
+      width: 100%;
+      height: 40vh;
+      background-position: center;
+      background-size: cover;
+      background-image: url("images/banner.png");
+    }
+
+    .bgli {
+
+      background: linear-gradient(red, #FF3366, green);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+
+    /* Style the PDF modal (avoid Bootstrap .modal class conflicts) */
+    .pdf-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    /* Style the PDF modal content */
+    .pdf-modal-content {
+      position: relative;
+      width: 80%;
+      height: auto;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+
+    }
+
+    /* Style the PDF modal close button */
+    .pdf-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .btn {
+      border-radius: 50px;
+      /* Adjust the radius to control the roundness */
+      background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%);
+      color: #fff;
+      /* Change to your desired text color */
+      padding: 10px 20px;
+      /* Adjust padding as needed */
+      font-size: 16px;
+      /* Change to your desired font size */
+      text-transform: uppercase;
+      /* Optional, to make the text uppercase */
+      position: relative;
+      /* Needed for reflection effect */
+    }
+
+    .btn:after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      /* Adjust the height of the reflection */
+      background: rgba(0, 0, 0, 0.2);
+      /* Reflection color */
+      border-radius: 50px;
+      /* Match the button's border-radius */
+    }
+
+    /* Additional styling for when the button is hovered over */
+    .btn:hover {
+      color: white !important;
+      background: linear-gradient(109.6deg, rgb(11, 132, 145) 11.2%, rgb(0, 0, 0) 91.1%);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    /* Specifically for event register buttons */
+    .card .btn-primary {
+      background: linear-gradient(to right, #0b4d4e, #093c79);
+      border: none;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: all 0.3s ease;
+    }
+
+    .card .btn-primary:hover {
+      background: linear-gradient(to right, #093c79, #0b4d4e);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(9, 60, 121, 0.4);
+    }
+
+    .card .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+      transition: left 0.7s ease;
+      z-index: -1;
+    }
+
+    .card .btn-primary:hover::before {
+      left: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="row k text-center p-3" style="background-color: #ffffff;">
+    <div class="col-12">
+      <img src="images/mkce-header_new.png" class="img-fluid" alt="MKCE Accreditations">
+    </div>
+  </div>
+
+
+  <!-- Head metadata and styles are now correctly placed in <head> for responsiveness -->
+  <style>
+    /* red alert style */
+    .custom-alert {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ff4d4d;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      z-index: 99999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+    }
+  </style>
+
+  <style>
+    /* Default styles for the div */
+    .k {
+      width: 100%;
+    }
+
+    .k2 {
+      width: 10%;
+    }
+
+    /* Styles for screens up to 767px width (mobile devices) */
+    @media screen and (max-width: 767px) {
+      .k {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .k2 {
+        display: none;
+      }
+    }
+
+    /*=============== GOOGLE FONTS ===============*/
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+    /*=============== VARIABLES CSS ===============*/
+    :root {
+      --header-height: 3.5rem;
+
+      /*========== Colors ==========*/
+      /*Color mode HSL(hue, saturation, lightness)*/
+      --black-color: hsl(220, 24%, 12%);
+      --black-color-light: hsl(220, 24%, 15%);
+      --black-color-lighten: hsl(220, 20%, 18%);
+      --white-color: #fff;
+      --body-color: hsl(220, 100%, 97%);
+
+      /*========== Font and typography ==========*/
+      /*.5rem = 8px | 1rem = 16px ...*/
+      --body-font: "Montserrat", sans-serif;
+      --normal-font-size: .938rem;
+
+      /*========== Font weight ==========*/
+      --font-regular: 400;
+      --font-semi-bold: 600;
+
+      /*========== z index ==========*/
+      --z-tooltip: 10;
+      --z-fixed: 100;
+    }
+
+    /*========== Responsive typography ==========*/
+    @media screen and (min-width: 1024px) {
+      :root {
+        --normal-font-size: 1rem;
+      }
+    }
+
+    /*=============== BASE ===============*/
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: var(--body-font);
+      font-size: var(--normal-font-size);
+      background-color: var(--body-color);
+    }
+
+    ul {
+      list-style: none;
+      /* Color highlighting when pressed on mobile devices */
+      /*-webkit-tap-highlight-color: transparent;*/
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /*=============== REUSABLE CSS CLASSES ===============*/
+    .container {
+      max-width: 1120px;
+      margin-inline: 1.5rem;
+    }
+
+    /*=============== HEADER ===============*/
+    .header {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: hsl(216.2, 74.6%, 13.9%);
+      box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
+      z-index: var(--z-fixed);
+    }
+
+
+    /*=============== Menu bar ===============*/
+
+
+
+    #container {
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    #container:after {
+      content: "";
+      display: block;
+      clear: both;
+      height: 0;
+    }
+
+    #menu {
+      position: relative;
+      float: left;
+      width: 100%;
+      padding: 0 20px;
+      border-radius: 3px;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.15);
+      background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+
+
+
+      z-index: 9997;
+    }
+
+    #menu,
+    #menu ul {
+      list-style: none;
+    }
+
+    #menu>li {
+      float: left;
+      position: relative;
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 1px 0 0 rgba(255, 255, 255, 0.25);
+      /* perspective: 1000px; */
+    }
+
+    #menu>li:first-child {
+      border-left: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: -1px 0 0 rgba(0, 0, 0, 0.1), 1px 0 0 rgba(255, 255, 255, 0.25);
+    }
+
+    #menu a,
+    #menu span {
+      display: block;
+      position: relative;
+      z-index: 9998;
+      padding: 13px 20px 13px 20px;
+      text-decoration: none;
+      color: white;
+      line-height: 1;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: -0.05em;
+      background: transparent;
+
+      transition: all 0.25s ease-in-out;
+    }
+
+    #menu>li:hover>a,
+    #menu>li:hover>span {
+      background: #333;
+      color: rgba(0, 223, 252, 1);
+      text-shadow: none;
+    }
+
+    #menu li ul {
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      width: 250px;
+      padding: 0;
+      opacity: 0;
+      visibility: hidden;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      background: transparent;
+      /* overflow: hidden; */
+      transform-origin: 50% 0%;
+      z-index: 10000;
+      animation: swingdown 1s ease;
+      animation-play-state: paused;
+    }
+
+    #menu li:hover ul {
+      padding: 15px 0;
+      background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+      opacity: 1;
+      visibility: visible;
+      box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5);
+      animation-play-state: running;
+    }
+
+    @keyframes swingdown {
+      0% {
+        opacity: 0.99999;
+        transform: rotateX(90deg);
+      }
+
+      30% {
+        transform: rotateX(-20deg) rotateY(5deg);
+        animation-timing-function: ease-in-out;
+      }
+
+      65% {
+        transform: rotateX(20deg) rotateY(-3deg);
+        animation-timing-function: ease-in-out;
+      }
+
+      100% {
+        transform: rotateX(0);
+        animation-timing-function: ease-in-out;
+      }
+    }
+
+    #menu li li a {
+      padding-left: 15px;
+      font-weight: 400;
+      color: #ddd;
+      text-shadow: none;
+      border-top: dotted 1px transparent;
+      border-bottom: dotted 1px transparent;
+      transition: all 0.15s linear;
+    }
+
+    #menu li li a:hover {
+      color: rgba(0, 223, 252, 1);
+      border-top: dotted 1px rgba(255, 255, 255, 0.15);
+      border-bottom: dotted 1px rgba(255, 255, 255, 0.15);
+      background: rgba(0, 223, 252, 0.02);
+    }
+
+    /* Add this to your existing CSS file or create a new one */
+    .mobile-menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media only screen and (max-width: 768px) {
+      #menu {
+        display: none;
+        padding: 20px;
+        /* Adjust spacing as needed */
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+        text-align: right;
+        padding: 15px;
+        background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+        color: #fff;
+      }
+
+      .toggle-group {
+        width: 100%;
+      }
+
+      .toggle-group>a {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+
+    /* Add this CSS for mobile responsiveness */
+    @media only screen and (max-width: 768px) {
+      body {
+        padding: 15px;
+        /* Adjust padding for smaller screens */
+      }
+
+      #container {
+        width: 100%;
+        /* Make the container full width */
+      }
+
+      #menu {
+        float: none;
+        width: 100%;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+      }
+
+      #menu>li {
+        float: none;
+        position: static;
+        border: none;
+        box-shadow: none;
+      }
+
+      #menu>li:first-child {
+        border: none;
+        box-shadow: none;
+      }
+
+      #menu a {
+        padding: 10px;
+        font-size: 14px;
+        /* Increase font size for better readability */
+      }
+
+      #menu>li:hover>a {
+        background: transparent;
+        color: rgba(0, 223, 252, 1);
+      }
+
+      #menu li ul {
+        position: static;
+        width: 100%;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        border-radius: 0;
+        box-shadow: none;
+        background: #333;
+        overflow: visible;
+        transform-origin: 50% 50%;
+      }
+
+      #menu li:hover ul {
+        padding: 10px 0;
+        background: #333;
+        box-shadow: none;
+        animation: none;
+      }
+
+      @keyframes swingdown {
+        /* Remove the animation for smaller screens */
+      }
+
+      #menu li li a {
+        padding-left: 15px;
+        font-weight: 400;
+        color: #ddd;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        transition: none;
+      }
+
+      #menu li li a:hover {
+        color: rgba(0, 223, 252, 1);
+        background: rgba(0, 223, 252, 0.02);
+      }
+    }
+
+    .wide-submenu {
+      width: 600px;
+      /* Adjust width as needed */
+    }
+
+    .bg-dark2 {
+      background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(11, 77, 78, 1) 53%, rgba(9, 60, 121, 1) 95%);
+    }
+
+    #payments-sub-menu {
+      display: none;
+    }
+
+    .payments-menu-group:hover #payments-sub-menu {
+      display: block;
+    }
+
+    .dropdown-toggle-no-caret::after {
+      display: none !important;
+    }
+
+    .dropdown-menu {
+      background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+      /* Set the background color for the submenu */
+    }
+
+    .dropdown-item {
+      color: #fff;
+      /* Set the text color for the submenu items */
+    }
+
+    .dropdown-item:hover {
+      color: rgba(0, 223, 252, 1);
+      background: rgba(0, 223, 252, 0.02);
+    }
+  </style>
+
+  <!--Title/Header starts -->
+
+  <div class="title-section wow fadeInUp">
+    <div class="container-fluid py-5">
+      <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+        <h5 class="fw-bold text-uppercase title-subtitle">M.Kumarasamy College of Engineering</h5>
+        <h1 class="mb-0 title-main"><i class="bi bi-globe"></i>ARROH STUDENT CLUB</h1>
+
+
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .title-section {
+      background: linear-gradient(135deg, rgba(9, 30, 62, 1) 0%, rgba(11, 77, 78, 1) 50%, rgba(9, 60, 121, 1) 100%);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Title can wrap when needed on small screens to avoid horizontal overflow */
+    .title-main {
+      display: inline-flex;
+      align-items: center;
+      /* allow wrapping to prevent horizontal scroll on narrow devices */
+      white-space: normal;
+      overflow: visible;
+    }
+
+    .title-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
+      animation: pulse 8s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: scale(1.2);
+        opacity: 0.2;
+      }
+
+      100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+    }
+
+    .title-subtitle {
+      color: #6fd6d6 !important;
+      letter-spacing: 3px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .title-main {
+      color: white;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 2;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+    }
+
+    .title-main i {
+      margin-right: 10px;
+      color: #6fd6d6;
+    }
+  </style>
+
+  <!-- Clubs Directory (Responsive Two-Column Layout) -->
+  <section class="pt-4 pb-5" aria-labelledby="clubsHeading">
+    <div class="container-fluid">
+      <div class="row g-4">
+        <!-- Aside / Intro Panel -->
+       
+        <!-- Cards Grid (use full width so cards occupy entire row when no aside is present) -->
+        <div class="col-12">
+          <div class="row g-4" id="clubs-grid">
+            <!-- Google Club -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <a href="google_club.html" class="club-card card text-decoration-none" aria-label="Google Club page">
+                <div class="club-card-img-wrapper position-relative">
+                  <img src="images/LOGO_GOOGLEE_COPY.png" class="card-img-top" alt="Google Club Logo">
+                  <span class="badge bg-danger position-absolute top-0 end-0 m-2">Cloud</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title mb-2 d-flex align-items-center"><i class="bi bi-google me-2 text-danger"></i>Google Club</h5>
+                  <p class="card-text small text-muted flex-grow-1">Learning Google ecosystem tools, developer technologies & community programs.</p>
+                  <span class="btn btn-sm btn-primary align-self-start mt-1">View Details <i class="bi bi-arrow-right-short"></i></span>
+                </div>
+              </a>
+            </div>
+             <!-- Mobile App Club -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <a href="mobapkclub.html" class="club-card card text-decoration-none" aria-label="Mobile App Club page">
+                <div class="club-card-img-wrapper position-relative">
+                  <img src="images/logo_google  - Copy copy.jpg" class="card-img-top" alt="Mobile App Club Logo">
+                  <span class="badge bg-info text-dark position-absolute top-0 end-0 m-2">Apps</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title mb-2 d-flex align-items-center"><i class="bi bi-phone-fill me-2 text-info"></i>Mobile App Club</h5>
+                  <p class="card-text small text-muted flex-grow-1">Building mobile experiences through design, UX and cross-platform development.</p>
+                  <span class="btn btn-sm btn-primary align-self-start mt-1">View Details <i class="bi bi-arrow-right-short"></i></span>
+                </div>
+              </a>
+            </div>
+            <!-- Unstop Igniters -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <a href="unstop_index.html" class="club-card card text-decoration-none" aria-label="Unstop Igniters Club page">
+                <div class="club-card-img-wrapper position-relative">
+                  <img src="images/logo_unstop  - Copy copy.jpg" class="card-img-top" alt="Unstop Igniters Club Logo">
+                  <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">Career</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title mb-2 d-flex align-items-center"><i class="bi bi-trophy-fill me-2 text-warning"></i>Unstop Igniters</h5>
+                  <p class="card-text small text-muted flex-grow-1">Hackathons & career ecosystem connecting students with national competitions & industry exposure.</p>
+                  <span class="btn btn-sm btn-primary align-self-start mt-1">View Details <i class="bi bi-arrow-right-short"></i></span>
+                </div>
+              </a>
+            </div>
+             <!-- IEEE Chapter -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <a href="IEEE_club.html" class="club-card card text-decoration-none" aria-label="IEEE Student Chapter Club page">
+                <div class="club-card-img-wrapper position-relative">
+                  <img src="images/logo_iee - Copy.png" class="card-img-top" alt="IEEE Student Chapter Club Logo">
+                  <span class="badge bg-dark position-absolute top-0 end-0 m-2">IEEE</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title mb-2 d-flex align-items-center"><i class="bi bi-lightning-charge-fill me-2 text-dark"></i>IEEE Chapter</h5>
+                  <p class="card-text small text-muted flex-grow-1">Professional networking & standards-driven learning in emerging technologies.</p>
+                  <span class="btn btn-sm btn-primary align-self-start mt-1">View Details <i class="bi bi-arrow-right-short"></i></span>
+                </div>
+              </a>
+            </div>
+            <!-- EWB Club -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <a href="without_boarders.html" class="club-card card text-decoration-none" aria-label="Engineers Without Borders Club page">
+                <div class="club-card-img-wrapper position-relative">
+                  <img src="images/logo_without_copy.png" class="card-img-top" alt="Engineers Without Borders Club Logo">
+                  <span class="badge bg-danger position-absolute top-0 end-0 m-2">Impact</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title mb-2 d-flex align-items-center"><i class="bi bi-people-fill me-2 text-danger"></i>EWB Club</h5>
+                  <p class="card-text small text-muted flex-grow-1">Global development initiatives solving real-world social & technical challenges.</p>
+                  <span class="btn btn-sm btn-primary align-self-start mt-1">View Details <i class="bi bi-arrow-right-short"></i></span>
+                </div>
+              </a>
+            </div>
+             <!-- Sustainable Engineers -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <a href="sustanable_index.html" class="club-card card text-decoration-none" aria-label="Sustainable Engineer Club page">
+                <div class="club-card-img-wrapper position-relative">
+                  <img src="images/logo_ici  - Copy copy.jpg" class="card-img-top" alt="Sustainable Engineer Club Logo">
+                  <span class="badge bg-success position-absolute top-0 end-0 m-2">Eco</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title mb-2 d-flex align-items-center"><i class="bi bi-tree-fill me-2 text-success"></i>Sustainable Engineers</h5>
+                  <p class="card-text small text-muted flex-grow-1">Promoting responsible engineering & green innovation for a sustainable future.</p>
+                  <span class="btn btn-sm btn-primary align-self-start mt-1">View Details <i class="bi bi-arrow-right-short"></i></span>
+                </div>
+              </a>
+            </div>
+            <!-- Innovators Forum -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <a href="innovator.html" class="club-card card text-decoration-none" aria-label="Innovators Tech Forum Club page">
+                <div class="club-card-img-wrapper position-relative">
+                  <img src="images/logo_ivvov_copy.png" class="card-img-top" alt="Innovators Tech Forum Club Logo">
+                  <span class="badge bg-secondary position-absolute top-0 end-0 m-2">Innovation</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title mb-2 d-flex align-items-center"><i class="bi bi-lightbulb-fill me-2 text-secondary"></i>Innovators Forum</h5>
+                  <p class="card-text small text-muted flex-grow-1">Fostering creativity, prototyping & product-thinking through tech ideation.</p>
+                  <span class="btn btn-sm btn-primary align-self-start mt-1">View Details <i class="bi bi-arrow-right-short"></i></span>
+                </div>
+              </a>
+            </div>
+            
+
+            <!-- IoT Club Card -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <a href="iot_club.html" class="club-card card text-decoration-none" aria-label="IoT Club page">
+                <div class="club-card-img-wrapper position-relative">
+                  <img src="images/logo_ioy  - Copy copy.jpg" class="card-img-top" alt="IoT Club Logo">
+                  <span class="badge bg-primary position-absolute top-0 end-0 m-2">IoT</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title mb-2 d-flex align-items-center"><i class="bi bi-wifi me-2 text-primary"></i>IoT Club</h5>
+                  <p class="card-text small text-muted flex-grow-1">Innovating with sensors, embedded systems & connected solutions bridging physical and digital worlds.</p>
+                  <span class="btn btn-sm btn-primary align-self-start mt-1">View Details <i class="bi bi-arrow-right-short"></i></span>
+                </div>
+              </a>
+            </div>
+            
+           
+           
+            
+           
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Aside / directory styles */
+    .directory-aside {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.25rem 1.25rem 1.5rem;
+      position: sticky;
+      top: 90px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #093C79, #0B4D4E);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, .15);
+    }
+
+    .directory-aside .btn {
+      font-size: .7rem;
+      padding: .45rem .9rem;
+      border-radius: 30px;
+    }
+
+    /* Club card improvements: responsive image, consistent body spacing, card height alignment */
+    .club-card {
+      border-radius: 16px;
+      transition: transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s;
+      background: #fff;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      overflow: visible; /* Allow pseudo-element border to show */
+      /* Soft base shadow with hint of neon */
+      box-shadow: 0 6px 18px rgba(0,0,0,.08), 0 2px 8px rgba(9,60,121,.06),
+                  0 0 10px rgba(0, 240, 255, .12), 0 0 18px rgba(122, 92, 255, .08);
+    }
+
+    /* Animated neon gradient border using pseudo-element */
+    .club-card::before {
+      content: "";
+      position: absolute;
+      inset: -3px; /* Border thickness */
+      border-radius: 16px;
+      padding: 3px;
+      background: linear-gradient(135deg, #00f0ff, #ff00e6, #7a5cff, #00f0ff);
+      background-size: 300% 300%;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor;
+      pointer-events: none;
+      z-index: -1;
+      animation: neonBorderFlow 4s ease-in-out infinite;
+      opacity: 0.85;
+      transition: opacity .3s ease;
+    }
+
+    /* Image wrapper uses aspect-ratio to keep cards consistent across devices */
+    .club-card-img-wrapper {
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 16 / 10; /* default landscape */
+      background: #f5f5f5;
+      /* Match card radius on the top corners so image and border align perfectly */
+      border-top-left-radius: 14px;
+      border-top-right-radius: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Make images fully responsive and cover the wrapper */
+    .club-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .6s ease, filter .3s ease;
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+    }
+
+    .club-card:hover img,
+    .club-card:focus img {
+      transform: scale(1.08) rotate(1deg);
+      filter: saturate(1.15) contrast(1.05) brightness(1.02);
+    }
+
+    .club-card:hover,
+    .club-card:focus {
+      transform: translateY(-8px) scale(1.02);
+      /* Elevated layered shadows + neon glow */
+      box-shadow: 0 20px 45px rgba(0,0,0,.18),
+                  0 12px 26px rgba(9,60,121,.14),
+                  0 0 18px rgba(0, 240, 255, .55),
+                  0 0 36px rgba(255, 0, 230, .38),
+                  0 0 54px rgba(122, 92, 255, .28);
+      outline: none;
+      animation: cardFloat 3s ease-in-out infinite;
+    }
+
+    /* Make border glow stronger on hover */
+    .club-card:hover::before,
+    .club-card:focus::before {
+      opacity: 1;
+      animation: neonBorderFlow 3s ease-in-out infinite, neonPulse 2.4s ease-in-out infinite;
+    }
+
+    /* Keyboard accessibility: clear, colorful focus ring */
+    .club-card:focus-visible {
+      box-shadow: 0 0 0 4px rgba(111, 214, 214, .35), 0 18px 40px rgba(0,0,0,.16),
+                  0 0 16px rgba(0, 240, 255, .4);
+      animation: cardFloat 3s ease-in-out infinite;
+    }
+
+    /* Animated gradient border flow */
+    @keyframes neonBorderFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Floating card animation */
+    @keyframes cardFloat {
+      0%, 100% {
+        transform: translateY(-8px) scale(1.02);
+      }
+      50% {
+        transform: translateY(-12px) scale(1.02);
+      }
+    }
+
+    /* Neon pulse animation for glowing borders */
+    @keyframes neonPulse {
+      0% {
+        box-shadow: 0 18px 40px rgba(0,0,0,.16),
+                    0 10px 22px rgba(9,60,121,.12),
+                    0 0 10px rgba(0, 240, 255, .35),
+                    0 0 18px rgba(255, 0, 230, .20),
+                    0 0 26px rgba(122, 92, 255, .16);
+      }
+      50% {
+        box-shadow: 0 20px 46px rgba(0,0,0,.18),
+                    0 12px 26px rgba(9,60,121,.14),
+                    0 0 18px rgba(0, 240, 255, .55),
+                    0 0 34px rgba(255, 0, 230, .34),
+                    0 0 50px rgba(122, 92, 255, .28);
+      }
+      100% {
+        box-shadow: 0 18px 40px rgba(0,0,0,.16),
+                    0 10px 22px rgba(9,60,121,.12),
+                    0 0 10px rgba(0, 240, 255, .35),
+                    0 0 18px rgba(255, 0, 230, .20),
+                    0 0 26px rgba(122, 92, 255, .16);
+      }
+    }
+
+    .club-card .card-body {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      flex: 1 1 auto;
+      position: relative;
+      z-index: 1;
+      background: #fff;
+      border-bottom-left-radius: 14px;
+      border-bottom-right-radius: 14px;
+    }
+
+    .club-card .card-title {
+      font-weight: 600;
+      font-size: .98rem;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    /* Give the title icon a subtle colorful accent */
+    .club-card .card-title i {
+      background: linear-gradient(135deg, #0b4d4e, #093c79);
+      -webkit-background-clip: text;
+              background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .club-card .card-text { flex-grow: 1; color: #6c757d; }
+
+    .club-card .btn {
+      font-size: .78rem;
+      padding: .45rem .9rem;
+      border-radius: 30px;
+      align-self: start;
+    }
+
+    .club-card .badge { font-size: .68rem; letter-spacing: .4px; }
+
+    /* Badge gets a tiny playful lift on hover */
+    .club-card:hover .badge { 
+      transform: translateY(-3px) scale(1.08) rotate(-2deg); 
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1); 
+      box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    }
+
+    /* Button anchor should be keyboard accessible */
+    .club-card:focus { box-shadow: 0 8px 20px rgba(9,30,62,0.12); }
+
+    /* Grid button sizing tweak */
+    #clubs-grid .btn { font-size: .78rem; padding: .42rem .85rem; border-radius: 28px; }
+
+    /* Mobile adjustments */
+    @media (max-width: 575.98px) {
+      .directory-aside { position: static; top: auto; padding: 1rem; }
+      /* make images taller on small phones so they remain visible and clear */
+      .club-card-img-wrapper { aspect-ratio: 4 / 3; min-height: 160px; }
+      .club-card .card-title { font-size: .92rem; }
+      .club-card .card-text { font-size: .88rem; }
+    }
+
+    @media (min-width: 576px) and (max-width: 991.98px) {
+      .club-card-img-wrapper { aspect-ratio: 5 / 4; }
+    }
+
+    /* Medium screens: ensure images have a good visible height */
+    @media (min-width: 768px) and (max-width: 1199.98px) {
+      .club-card-img-wrapper { min-height: 180px; }
+    }
+
+    /* Large screens: make images slightly larger for visual balance */
+    @media (min-width: 1200px) {
+      .club-card-img-wrapper { min-height: 220px; }
+    }
+
+    /* Very small phones: show single column so images are larger and readable */
+    @media (max-width: 420px) {
+      #clubs-grid .col-6 { flex: 0 0 100% !important; max-width: 100% !important; }
+      .club-card-img-wrapper { min-height: 180px; aspect-ratio: 4 / 3; }
+    }
+  </style>
+<!-- IoT Blog & News Section -->
+
+
+<script>
+  async function loadIoTNews() {
+    const rssUrl = "https://news.google.com/rss/search?q=Internet+of+Things&hl=en-IN&gl=IN&ceid=IN:en";
+    try {
+      let response = await fetch("https://api.rss2json.com/v1/api.json?rss_url=" + rssUrl);
+      let data = await response.json();
+      let container = document.getElementById("news-container");
+
+      // Remove the "Loading..." placeholder only
+      container.querySelectorAll("p").forEach(el => el.remove());
+
+      // Append dynamic news items
+      data.items.slice(0, 5).forEach(item => {
+        const newsItem = document.createElement("div");
+        newsItem.className = "news-item";
+        newsItem.innerHTML = `
+          <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+          <p>${item.pubDate.split(" ")[0]} — ${item.description.substring(0,100)}...</p>
+        `;
+        container.appendChild(newsItem);
+      });
+    } catch (error) {
+      document.getElementById("news-container").innerHTML += "<p> </p>";
+    }
+  }
+  loadIoTNews();
+</script>
+
+
+<style>
+  .news-section {
+    padding: 50px 20px;
+    background: #f5f8fa;
+  }
+  .news-section .section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+  }
+  .news-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .news-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 4px solid #0077ff;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+  .news-item img.news-img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  .news-item h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+  }
+  .news-item a {
+    text-decoration: none;
+    color: #0077ff;
+  }
+  .news-item a:hover {
+    text-decoration: underline;
+  }
+  .news-item p {
+    font-size: 14px;
+    color: #555;
+  }
+</style>
+
+      <style>
+        /* Event Winners Styles */
+        .winner-card {
+          position: relative;
+          border-radius: 15px;
+          overflow: hidden;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+          transition: all 0.3s ease;
+          background: white;
+          padding-bottom: 20px;
+        }
+
+        .winner-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .winner-medal {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          z-index: 2;
+        }
+
+        .gold .winner-medal {
+          background: linear-gradient(135deg, #FFD700, #FFA500);
+          color: #7D4614;
+          box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .silver .winner-medal {
+          background: linear-gradient(135deg, #E0E0E0, #C0C0C0);
+          color: #505050;
+          box-shadow: 0 5px 15px rgba(192, 192, 192, 0.4);
+        }
+
+        .bronze .winner-medal {
+          background: linear-gradient(135deg, #CD7F32, #A05A2C);
+          color: #543E28;
+          box-shadow: 0 5px 15px rgba(205, 127, 50, 0.4);
+        }
+
+        .winner-badge {
+          position: absolute;
+          top: 20px;
+          left: 0;
+          background-color: #091E3E;
+          color: white;
+          padding: 8px 20px;
+          font-weight: bold;
+          border-top-right-radius: 20px;
+          border-bottom-right-radius: 20px;
+          box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+          z-index: 2;
+        }
+
+        .gold .winner-badge {
+  background: linear-gradient(90deg, rgba(255, 140, 0, 0.8), rgba(255, 215, 0, 0.8));
+}
+
+        
+
+       .silver .winner-badge {
+  background: linear-gradient(90deg, rgba(155, 143, 143, 0.8), rgba(224, 224, 224, 0.8));
+}
+
+.bronze .winner-badge {
+  background: linear-gradient(90deg, rgba(139, 69, 19, 0.8), rgba(205, 127, 50, 0.8));
+}
+
+
+        .winner-img {
+          height: 200px;
+          overflow: hidden;
+          border-bottom: 3px solid #f0f0f0;
+        }
+
+        .gold .winner-img {
+          border-bottom-color: #FFD700;
+        }
+
+        .silver .winner-img {
+          border-bottom-color: #C0C0C0;
+        }
+
+        .bronze .winner-img {
+          border-bottom-color: #CD7F32;
+        }
+
+        .winner-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+
+        .winner-card:hover .winner-img img {
+          transform: scale(1.1);
+        }
+
+        .winner-info {
+          padding: 20px;
+          text-align: center;
+        }
+
+        .winner-info h4 {
+          color: #091E3E;
+          font-weight: 600;
+          margin-bottom: 5px;
+          font-size: 1.4rem;
+        }
+
+        .winner-info .team {
+          color: #666;
+          font-weight: 500;
+          margin-bottom: 15px;
+          font-size: 1.1rem;
+        }
+
+        .winner-details {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 15px;
+          font-size: 0.9rem;
+          color: #666;
+        }
+
+        .winner-details span {
+          margin: 0 10px;
+          display: flex;
+          align-items: center;
+        }
+
+        .winner-details i {
+          margin-right: 5px;
+          color: #091E3E;
+        }
+
+        .winner-tech {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+        }
+
+        .winner-tech span {
+          background-color: #f0f0f0;
+          padding: 5px 15px;
+          border-radius: 20px;
+          font-size: 0.85rem;
+          color: #091E3E;
+        }
+
+        .gold .winner-tech span {
+          background: rgba(255, 215, 0, 0.15);
+        }
+
+        .silver .winner-tech span {
+          background: rgba(192, 192, 192, 0.15);
+        }
+
+        .bronze .winner-tech span {
+          background: rgba(205, 127, 50, 0.15);
+        }
+      </style>
+    </div>
+  </div>
+
+  <style>
+    .im {
+      background-image: url("images/b3.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .bg-dark {
+      background-color: #091E3E !important
+    }
+  </style>
+
+<!-- Footer -->
+<div class="container-fluid text-white"
+  style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(11,77,78,1) 53%, rgba(9,60,121,1) 95%);">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <div class="py-4">
+          <p class="mb-0">
+            2025 © M.Kumarasamy College of Engineering All Rights Reserved | Designed by
+            <span data-bs-toggle="modal" data-bs-target="#devTeamModal"
+              style="color: yellow; cursor: pointer; font-weight: bold;">
+              Clubs Web Dev Team - MKCE
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="devTeamModal" tabindex="-1" aria-labelledby="devTeamModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h5 class="modal-title" id="devTeamModalLabel">Clubs Web Dev Team - MKCE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row text-center">
+          <div class="col-md-3 col-6 mb-4">
+            <img src="./images/Photograph.jpg" alt="Member 4" class="rounded-circle img-fluid mb-2"
+              style="width:120px; height:160px; object-fit:cover;">
+            <h6 class="mb-0">Arun Sanjeev</h6>
+            <small>Lead</small>
+            <div class="mt-1">
+              
+              <a href="https://github.com/arunsanjeevms" target="_blank" rel="noopener" aria-label="Arun Sanjeev on GitHub" class="text-dark me-2"><i class="bi bi-github"></i></a>
+              <a href="https://www.linkedin.com/in/arunsanjeev/" target="_blank" rel="noopener" aria-label="Arun Sanjeev on LinkedIn" class="text-primary"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+           <div class="col-md-3 col-6 mb-4">
+            <img src="./images/sahil.png" alt="Member 4" class="rounded-circle img-fluid mb-2"
+              style="width:120px; height:160px; object-fit:cover;">
+            <h6 class="mb-0">Sahil</h6>
+            <small>UI/UX</small>
+            <div class="mt-1">
+              
+              <a href="https://github.com/sahildandia" target="_blank" rel="noopener" aria-label="Sahil on GitHub" class="text-dark me-2"><i class="bi bi-github"></i></a>
+              <a href="https://www.linkedin.com/in/sahildandia" target="_blank" rel="noopener" aria-label="Sahil on LinkedIn" class="text-primary"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <!-- Member 1 -->
+          <div class="col-md-3 col-6 mb-4">
+            <img src="images/harish.png" alt="Member 3" class="rounded-circle img-fluid mb-2" style="width:120px; height:160px; object-fit:cover;">
+            <h6 class="mb-0">Harish</h6>
+            <small>Team Member 1</small>
+          </div>
+
+          <!-- Member 2 -->
+          <div class="col-md-3 col-6 mb-4">
+            <img src="images/jeeva.png" alt="Member 3" class="rounded-circle img-fluid mb-2" style="width:120px; height:160px; object-fit:cover;">
+            <h6 class="mb-0">Jeeva</h6>
+            <small>Team Member 2</small>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>  
+
+
+
+
+
+  <script src="js/jquery-3.4.1.min.js" type="8a40b50d4e4710a0ee04b30c-text/javascript"></script>
+  <script src="js/bootstrap.bundle.min.js" type="8a40b50d4e4710a0ee04b30c-text/javascript"></script>
+
+  <script src="js/bootstrap.min.js" type="8a40b50d4e4710a0ee04b30c-text/javascript"></script>
+  <!-- Bootstrap framework -->
+  <script src="js/script.js" type="8a40b50d4e4710a0ee04b30c-text/javascript"></script>
+  <script src="js/custom.js" type="8a40b50d4e4710a0ee04b30c-text/javascript"></script>
+
+  <!-- Template Javascript -->
+  <script src="js/main.js" type="8a40b50d4e4710a0ee04b30c-text/javascript"></script>
+  <script type="8a40b50d4e4710a0ee04b30c-text/javascript">
+<!-- IoT Blog & News Section -->
+
+
+<script>
+  async function loadIoTNews() {
+    const rssUrl = "https://news.google.com/rss/search?q=Internet+of+Things&hl=en-IN&gl=IN&ceid=IN:en";
+    try {
+      let response = await fetch("https://api.rss2json.com/v1/api.json?rss_url=" + rssUrl);
+      let data = await response.json();
+      let container = document.getElementById("news-container");
+      container.innerHTML = "";
+
+      data.items.slice(0, 5).forEach(item => {
+        let newsItem = document.createElement("div");
+        newsItem.className = "news-item";
+        newsItem.innerHTML = `
+          <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+          <p>${item.pubDate.split(" ")[0]} — ${item.description.substring(0,100)}...</p>
+        `;
+        container.appendChild(newsItem);
+      });
+    } catch (error) {
+      document.getElementById("news-container").innerHTML = "<p>Unable to load news at this time.</p>";
+    }
+  }
+  loadIoTNews();
+</script>
+
+<style>
+  .news-section {
+    padding: 50px 20px;
+    background: #f5f8fa;
+  }
+  .news-section .section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+  }
+  .news-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .news-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 4px solid #0077ff;
+    background: #fff;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+  .news-item h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+  }
+  .news-item a {
+    text-decoration: none;
+    color: #0077ff;
+  }
+  .news-item a:hover {
+    text-decoration: underline;
+  }
+  .news-item p {
+    font-size: 14px;
+    color: #555;
+  }
+</style>
+
+	</script>
+</body>
+</html>
