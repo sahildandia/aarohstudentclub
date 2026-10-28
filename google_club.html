@@ -705,6 +705,16 @@
       margin-right: 10px;
       color: #6fd6d6;
     }
+
+    /* Long club name: shrink and wrap on smaller screens so it stays inside the banner */
+    @media (max-width: 767.98px) {
+      .title-section .title-main {
+        white-space: normal;
+        text-wrap: balance;
+        font-size: clamp(1.6rem, 4.2vw, 2.1rem);
+        line-height: 1.2;
+      }
+    }
   </style>
 
 
