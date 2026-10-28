@@ -706,6 +706,44 @@
       color: #6fd6d6;
     }
 
+    /* Keep the light-blue page gutter visible on both sides when the window is resized.
+       The base .container used a fixed 1.5rem margin on top of width:100%, which pushed
+       content past the screen edges. */
+    /* offsets the grid row's negative margins so the page never scrolls sideways */
+    .container-flex {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    .container-flex .container {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+
+    /* Let columns shrink below their content width (long names, tables) instead of overflowing */
+    .container-flex .row > [class*="col-"] {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .event-planner .card {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .winner-info .team {
+      overflow-wrap: anywhere;
+    }
+
+    @media (min-width: 769px) and (max-width: 1199.98px) {
+      body {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+
     /* Long club name: shrink and wrap on smaller screens so it stays inside the banner */
     @media (max-width: 767.98px) {
       .title-section .container-fluid {
@@ -904,6 +942,8 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
 <style>
   /* Tweak only the faculty card visuals for consistency */
   .faculty-card .faculty-avatar {
